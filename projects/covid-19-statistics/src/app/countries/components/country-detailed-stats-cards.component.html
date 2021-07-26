@@ -3,8 +3,12 @@
     <mat-card-title>
       Cases: {{ countryStats.totalCases | number }}
     </mat-card-title>
+    <mat-card-subtitle>
+      New Cases:
+      <span covid19DiffNumberColor>{{ countryStats.newCases }}</span>
+    </mat-card-subtitle>
     <mat-card-content
-      style="display: flex; flex-direction: column; align-content: center;"
+      style="display: flex; flex-direction: column; align-content: center"
     >
       Last reported at:
       {{ countryStats.fetchedAt | date: 'dd.MM.yyyy HH:mm' }}
@@ -16,12 +20,8 @@
         countryStats.totalCases | percentage: countryStats.activeCases | number
       }}%)
     </mat-card-title>
-    <mat-card-subtitle>
-      New Cases:
-      <span covid19DiffNumberColor>{{ countryStats.newCases }}</span>
-    </mat-card-subtitle>
     <mat-card-content
-      style="display: flex; flex-direction: column; align-content: center;"
+      style="display: flex; flex-direction: column; align-content: center"
     >
       Last reported at:
       {{ countryStats.fetchedAt | date: 'dd.MM.yyyy HH:mm' }}
@@ -39,7 +39,7 @@
       <span covid19DiffNumberColor>{{ countryStats.newDeaths }}</span>
     </mat-card-subtitle>
     <mat-card-content
-      style="display: flex; flex-direction: column; align-content: center;"
+      style="display: flex; flex-direction: column; align-content: center"
     >
       Last reported at:
       {{ countryStats.fetchedAt | date: 'dd.MM.yyyy HH:mm' }}
@@ -54,7 +54,7 @@
       }}%)
     </mat-card-title>
     <mat-card-content
-      style="display: flex; flex-direction: column; align-content: center;"
+      style="display: flex; flex-direction: column; align-content: center"
     >
       Last reported at:
       {{ countryStats.fetchedAt | date: 'dd.MM.yyyy HH:mm' }}

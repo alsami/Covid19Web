@@ -10,33 +10,33 @@ import { RouterModule } from '@angular/router';
       [
         {
           path: '',
-          redirectTo: 'global',
+          redirectTo: 'infections/global',
           pathMatch: 'full',
         },
         {
-          path: 'global',
+          path: 'infections/global',
           loadChildren: async () =>
             (await import('./global/global-stats.module')).GlobalStatsModule,
         },
         {
-          path: 'countries',
+          path: 'infections/countries',
           loadChildren: async () =>
             (await import('./countries/countries.module')).CountriesModule,
         },
         {
-          path: 'interface-preferences',
+          path: 'vaccinations/countries',
           loadChildren: async () =>
             (
               await import(
-                './interface-preferences/interface-preferences.module'
+                './vaccinations-countries/countries-vaccinations.module'
               )
-            ).InterfacePreferencesModule,
+            ).CountriesVaccinationsModule,
         },
       ],
       {
-    useHash: false,
-    relativeLinkResolution: 'legacy'
-}
+        useHash: false,
+        relativeLinkResolution: 'legacy',
+      }
     ),
   ],
   exports: [RouterModule],

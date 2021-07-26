@@ -42,6 +42,28 @@ export class CountriesWorldCardComponent implements OnChanges, OnDestroy {
   resizeObservable$: Observable<Event>;
   resizeSubscription$: Subscription;
 
+  public constructor() {
+    google.charts.setOnLoadCallback(() => {
+      this.chart = new google.visualization.GeoChart(
+        this.element.nativeElement
+      );
+
+      this.resizeObservable$ = fromEvent(window, 'resize');
+      this.resizeSubscription$ = this.resizeObservable$.subscribe(() => {
+        this.chart.clearChart();
+        this.draw(this.dataTable);
+      });
+
+      if (!this.countryStats) {
+        return;
+      }
+
+      this.dataTable = this.createDataTable();
+
+      this.draw(this.dataTable);
+    });
+  }
+
   private options: google.visualization.GeoChartOptions = {
     keepAspectRatio: true,
     // legend: 'none',
@@ -69,23 +91,11 @@ export class CountriesWorldCardComponent implements OnChanges, OnDestroy {
         : LIGHT_BACKGROUND;
     }
 
-    if (!this.chart) {
-      this.chart = new google.visualization.GeoChart(
-        this.element.nativeElement
-      );
-
-      this.resizeObservable$ = fromEvent(window, 'resize');
-      this.resizeSubscription$ = this.resizeObservable$.subscribe(() => {
-        this.chart.clearChart();
-        this.draw(this.dataTable);
-      });
-    }
-
-    if (!this.countryStats) {
+    if (!this.chart || !this.countryStats) {
       return;
     }
-    this.dataTable = this.createDataTable();
 
+    this.dataTable = this.createDataTable();
     this.draw(this.dataTable);
   }
 

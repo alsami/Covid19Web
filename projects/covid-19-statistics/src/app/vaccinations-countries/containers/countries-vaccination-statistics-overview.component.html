@@ -1,0 +1,14 @@
+<covid19-page-loader-overlay
+  [loading]="loading$ | async"
+></covid19-page-loader-overlay>
+<div class="page-content">
+  <ng-container
+    *ngFor="
+      let countryVaccinationStatistic of countriesVaccinationStatistics$ | async
+    "
+  >
+    <covid19-country-vaccination-statistic-card
+      [countryVaccinationStatistic]="countryVaccinationStatistic"
+    ></covid19-country-vaccination-statistic-card>
+  </ng-container>
+</div>

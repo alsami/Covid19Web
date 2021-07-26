@@ -2,9 +2,9 @@
   <div class="block">
     <div class="container">
       <mat-nav-list>
-        <h4 mat-subheader>Statistics</h4>
+        <h4 mat-subheader>Infections</h4>
         <mat-list-item
-          routerLink="/global"
+          routerLink="/infections/global"
           routerLinkActive="selected-link"
           (click)="linkClicked.emit()"
         >
@@ -13,7 +13,7 @@
         </mat-list-item>
         <mat-divider></mat-divider>
         <mat-list-item
-          routerLink="/countries"
+          routerLink="/infections/countries"
           routerLinkActive="selected-link"
           [routerLinkActiveOptions]="{ exact: true }"
           (click)="linkClicked.emit()"
@@ -23,7 +23,25 @@
         </mat-list-item>
         <mat-divider></mat-divider>
         <mat-list-item
-          routerLink="/countries/world-map"
+          routerLink="/infections/countries/world-map"
+          routerLinkActive="selected-link"
+          [routerLinkActiveOptions]="{ exact: true }"
+          (click)="linkClicked.emit()"
+        >
+          <mat-icon mat-list-icon>map</mat-icon>
+          <h4 mat-line>World Map</h4>
+        </mat-list-item>
+        <h4 mat-subheader>Vaccinations</h4>
+        <mat-list-item
+          routerLink="/vaccinations/countries"
+          routerLinkActive="selected-link"
+          (click)="linkClicked.emit()"
+        >
+          <mat-icon mat-list-icon>flag</mat-icon>
+          <h4 mat-line>Countries</h4>
+        </mat-list-item>
+        <mat-list-item
+          routerLink="/vaccinations/countries/world-map"
           routerLinkActive="selected-link"
           [routerLinkActiveOptions]="{ exact: true }"
           (click)="linkClicked.emit()"
@@ -33,41 +51,6 @@
         </mat-list-item>
       </mat-nav-list>
       <ng-container *ngIf="countriesOfInterest?.length">
-        <!--
-          <mat-nav-list cdkDropList>
-          <h4 mat-subheader>Countries of interest</h4>
-          <ng-container
-            *ngFor="
-              let countryOfInterest of countriesOfInterest;
-              let last = last
-            "
-          >
-            <mat-list-item
-              [routerLink]="'/countries/' + countryOfInterest.country"
-              routerLinkActive="selected-link"
-              (click)="linkClicked.emit()"
-              cdkDrag
-              (cdkDragDropped)="countryOfInterestOrdered($event)"
-              [cdkDragLockAxis]="'y'"
-            >
-              <div class="country-container">
-                <img
-                  [src]="
-                    'https://www.countryflags.io/' +
-                    countryOfInterest.countryCode +
-                    '/flat/32.png'
-                  "
-                  class="country-image"
-                />
-                <div mat-line style="font-size: 16px !important">
-                  {{ countryOfInterest.country }}
-                </div>
-              </div>
-            </mat-list-item>
-            <mat-divider *ngIf="!last"></mat-divider>
-          </ng-container>
-        </mat-nav-list>
-      -->
         <mat-nav-list>
           <h4 mat-subheader>Saved Countries</h4>
           <ng-container
@@ -77,7 +60,9 @@
             "
           >
             <mat-list-item
-              [routerLink]="'/countries/' + countryOfInterest.country"
+              [routerLink]="
+                '/infections/countries/' + countryOfInterest.country
+              "
               routerLinkActive="selected-link"
               (click)="linkClicked.emit()"
             >

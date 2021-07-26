@@ -1,5 +1,5 @@
 {
-  "name": "global-statistics-lib",
+  "name": "vaccination-statistics",
   "version": "0.0.1",
   "peerDependencies": {
     "@angular/common": "^12.1.3",
@@ -9,6 +9,6 @@
     "@ngrx/store": "^12.3.0"
   },
   "dependencies": {
-    "tslib": "^2.0.0"
+    "tslib": "^2.2.0"
   }
 }

@@ -1,0 +1,31 @@
+<ng-container *ngIf="countryVaccinationStatistic">
+  <mat-card>
+    <div class="header-container">
+      <img
+        class="country-image"
+        [src]="countryVaccinationStatistic | countryFlag"
+        style="width: 64px; height: 64px"
+      />
+      <mat-card-title>
+        {{ countryVaccinationStatistic.country }}
+      </mat-card-title>
+    </div>
+    <mat-card-content>
+      <div class="value-container">
+        <mat-chip-list
+          class="mat-chip-list-stacked"
+          [selectable]="false"
+          aria-label="Color selection"
+        >
+          <mat-chip [style.background]="colorScheme[0]">
+            Total: {{ countryVaccinationStatistic.totalVaccinations | number }}
+          </mat-chip>
+          <mat-chip [style.background]="colorScheme[1]">
+            People vaccinated:
+            {{ countryVaccinationStatistic.peopleVaccinated | number }}
+          </mat-chip>
+        </mat-chip-list>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</ng-container>

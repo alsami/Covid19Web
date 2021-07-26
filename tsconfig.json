@@ -11,10 +11,17 @@
         "dist/country-statistics-lib/country-statistics-lib",
         "dist/country-statistics-lib"
       ],
+      "vaccination-statistics-lib": [
+        "dist/vaccination-statistics-lib/vaccination-statistics-lib",
+        "dist/vaccination-statistics-lib"
+      ],
       "@covid19-statistics/*": ["covid-19-statistics/src/app/*"],
       "@covid19-statistics-environment/*": ["environments/*"],
       "@covid19-global-statistics-lib/*": ["global-statistics-lib/src/*"],
-      "@covid19-country-statistics-lib/*": ["country-statistics-lib/src/*"]
+      "@covid19-country-statistics-lib/*": ["country-statistics-lib/src/*"],
+      "@covid19-vaccination-statistics-lib/*": [
+        "vaccination-statistics-lib/src/*"
+      ]
     },
     "outDir": "./dist/out-tsc",
     "sourceMap": true,
@@ -29,6 +36,7 @@
   },
   "angularCompilerOptions": {
     "fullTemplateTypeCheck": true,
-    "strictInjectionParameters": true
+    "strictInjectionParameters": true,
+    "strictTemplates": false
   }
 }

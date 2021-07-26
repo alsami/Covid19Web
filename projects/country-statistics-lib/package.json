@@ -2,11 +2,11 @@
   "name": "country-statistics-lib",
   "version": "0.0.1",
   "peerDependencies": {
-    "@angular/common": "^11.0.0",
-    "@angular/core": "^11.0.0",
-    "@ngrx/effects": "^11.0.0-beta.0",
-    "@ngrx/entity": "^11.0.0-beta.0",
-    "@ngrx/store": "^11.0.0-beta.0"
+    "@angular/common": "^12.1.3",
+    "@angular/core": "^12.1.3",
+    "@ngrx/effects": "^12.3.0",
+    "@ngrx/entity": "^12.3.0",
+    "@ngrx/store": "^12.3.0"
   },
   "dependencies": {
     "tslib": "^2.0.0"

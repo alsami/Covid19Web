@@ -18,6 +18,7 @@ import {
   TitleEffects,
 } from '@covid19-statistics/core/+state/effects';
 import { CoreModule } from '@covid19-statistics/core/core.module';
+import { InterfacePreferencesModule } from '@covid19-statistics/interface-preferences/interface-preferences.module';
 import { LoadersModule } from '@covid19-statistics/loaders/loaders.module';
 import { MaterialModule } from '@covid19-statistics/material/material.module';
 import { CountryFlagPipe } from '@covid19-statistics/shared/pipes';
@@ -44,6 +45,7 @@ const COMPONENTS = [
     MaterialModule,
     BrowserAnimationsModule,
     AppRoutingModule,
+    InterfacePreferencesModule,
     StoreModule.forRoot(reducers, {
       metaReducers,
     }),
